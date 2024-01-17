@@ -84,15 +84,26 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#         "TEST": {
+#             "NAME": BASE_DIR / "db.sqlite3",
+#         },
+#     }
+# }
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-        "TEST": {
-            "NAME": BASE_DIR / "db.sqlite3",
-        },
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "justchat",
+        "USER": "root",       # Tên người dùng MySQL
+        "PASSWORD": "dinhthai2004",   # Mật khẩu MySQL
+        "HOST": "localhost",     # Địa chỉ máy chủ MySQL (thường là localhost)
+        "PORT": "3306",          # Cổng kết nối MySQL (thường là 3306)
     }
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
