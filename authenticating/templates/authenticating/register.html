@@ -1,0 +1,8 @@
+<a href="{% url 'authenticating:signin' %}">Đăng nhập</a>
+<a href="{% url 'authenticating:register' %}">Đăng kí</a>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Dky</button>
+</form>
