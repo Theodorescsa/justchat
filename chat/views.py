@@ -17,7 +17,8 @@ def room(request, room_name):
             name = name,
             
         )
-    messages = MessageModel.objects.all()
+    
+    messages = MessageModel.objects.filter(room_name=model)
     context = {
         'messages':messages,
         "room_name": room_name,

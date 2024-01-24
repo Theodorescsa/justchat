@@ -8,6 +8,10 @@
 
 <body>
     <textarea id="chat-log" cols="100" rows="20">
+        {% for item in messages %}
+        {{item.user.username|safe}}:{{item.message|safe}}
+        
+        {% endfor %}
     </textarea><br>
     <input id="chat-message-input" type="text" size="100"><br>
     <input id="chat-message-submit" type="button" value="Send">
@@ -47,7 +51,8 @@
             const messageInputDom = document.querySelector('#chat-message-input');
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
-                'message': message
+                'message': message,
+                'room_name':roomName,
             }));
             messageInputDom.value = '';
         };
