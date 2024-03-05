@@ -31,9 +31,11 @@
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            document.querySelector('#chat-log').value += (data.message + '\n');
-            console.log(data.message)
+            const chatLog = document.querySelector('#chat-log');
+            chatLog.value += (data.message + '\n');
+            chatLog.scrollTop = chatLog.scrollHeight; // Cuộn xuống cuối cùng
 
+            console.log(data.message);
         };
 
         chatSocket.onclose = function(e) {
